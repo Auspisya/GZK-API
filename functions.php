@@ -142,7 +142,7 @@ function auth($connect, $login, $password)
                 {
                     http_response_code(200);
                     $idUser = $data['UserId'];
-                    $sessionStart = date('Y-m-d H:i:s');
+                    $sessionStart = date('Y-d-m H:i:s');
                     $addSession = "INSERT INTO [Session](userId, sessionStart, authAttempts) VALUES (?, ?, ?)";
                     $sessionParams = array($idUser, $sessionStart, $allAttempts);
                     sqlsrv_query($connect, $addSession, $sessionParams);
